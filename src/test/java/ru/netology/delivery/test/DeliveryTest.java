@@ -4,7 +4,6 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.github.javafaker.Faker;
 import lombok.val;
-import lombok.var;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -120,17 +119,6 @@ class DeliveryTest {
         $("[data-test-id='date'] .input__sub").should(exactText("Заказ на выбранную дату невозможен"));
     }
 
-    @Test
-    @DisplayName("Should entering an invalid phone number")
-    void shouldEnteringAnInvalidPhoneNumber() {
-        $x("//input[@placeholder='Город']").setValue(city);
-        $("[data-test-id=date] input").doubleClick().sendKeys(DataGenerator.generateDate(3));
-        $("[data-test-id='name'] input").setValue(name);
-        $("[data-test-id='phone'] input").setValue("89409999806");
-        $("[data-test-id='agreement']").click();
-        $x("//*[contains(text(),'Запланировать')]").click();
-        $("[data-test-id='phone'] .input__sub").should(exactText("Телефон указан неверно. Должно быть 11 цифр, например, +79012345678."));
-    }
 
     @Test
     @DisplayName("shouldCheckboxValidation")
