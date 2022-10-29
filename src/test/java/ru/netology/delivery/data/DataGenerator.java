@@ -13,6 +13,7 @@ import java.util.Random;
 public class DataGenerator {
     private DataGenerator() {
     }
+
     public static String generateDate(int shift) {
         return LocalDate.now().plusDays(shift).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
     }
@@ -36,6 +37,6 @@ public class DataGenerator {
         return faker.phoneNumber().phoneNumber();
     }
 
-    }
+}
 
 
